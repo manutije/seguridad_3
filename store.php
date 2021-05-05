@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap eCommerce Page Template</title>
     <!-- Bootstrap -->
-    <link href="../Seguridad/css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,49 +28,7 @@
         </div>
       </div>
     </nav>
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col-12">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-              <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="images/1920x500.gif" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Item 1 Heading</h5>
-                  <p>Item 1 Description</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/1920x500.gif" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Item 2 Heading</h5>
-                  <p>Item 2 Description</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="images/1920x500.gif" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Item 3 Heading</h5>
-                  <p>Item 3 Description</p>
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      
       <hr>
     </div>
     <div class="container">
@@ -104,8 +62,8 @@
     <hr>
 	<?php
 		$servername = "localhost";
-		$username = "profinal";
-		$password = "equipo3";
+		$username = "root";
+		$password = "";
 		$dbname = "tienda";
 
 		// Create connection
@@ -115,14 +73,14 @@
   			die("Connection failed: " . $conn->connect_error);
 		}
 
-		$sql = "SELECT id, firstname, lastname FROM MyGuests";
+		$sql = "SELECT nombre, descripcion, precio FROM productos";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
-  			echo "<table><tr><th>ID</th><th>Name</th></tr>";
+  			echo "<table><tr><th>Nombre</th><th>Descripcion</th> <th>Precio</th></tr>";
   			// output data of each row
   			while($row = $result->fetch_assoc()) {
-    		echo "<tr><td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
+    		echo "<tr><td>".$row["nombre"]."</td><td>".$row["descripcion"]." ".$row["precio"]."</td></tr>";
   		}
   		echo "</table>";
 		} else {
@@ -306,10 +264,7 @@
         </div>
       </div>
     </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../Seguridad/js/jquery-3.4.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../Seguridad/js/popper.min.js"></script>
-    <script src="../Seguridad/js/bootstrap-4.4.1.js"></script>
+	  	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
   </body>
 </html>
